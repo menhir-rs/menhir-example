@@ -1,0 +1,110 @@
+main: EOF 
+##
+## Ends in an error in state: 0.
+##
+## main' -> . main [ # ]
+##
+## The known suffix of the stack is as follows:
+## 
+##
+
+Expected the beginning of an expression.
+
+main: ID CLOSE 
+##
+## Ends in an error in state: 16.
+##
+## main -> expr . EOF [ # ]
+##
+## The known suffix of the stack is as follows:
+## expr 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 8, spurious reduction of production expr_node -> expr2_node 
+## In state 6, spurious reduction of production expr -> expr_node 
+##
+
+Unexpected token after expression. Expected the beginning of an expression.
+
+main: ID LAMBDA 
+##
+## Ends in an error in state: 8.
+##
+## expr2 -> expr2_node . [ OPEN ID ]
+## expr_node -> expr2_node . [ EOF CLOSE ]
+##
+## The known suffix of the stack is as follows:
+## expr2_node 
+##
+
+Unexpected token after expression. Expected the beginning of an expression.
+
+main: LAMBDA ID DOT EOF 
+##
+## Ends in an error in state: 4.
+##
+## expr_node -> LAMBDA ID DOT . expr [ EOF CLOSE ]
+##
+## The known suffix of the stack is as follows:
+## LAMBDA ID DOT 
+##
+
+Unexpected token. Expected an expression.
+
+main: LAMBDA ID OPEN 
+##
+## Ends in an error in state: 3.
+##
+## expr_node -> LAMBDA ID . DOT expr [ EOF CLOSE ]
+##
+## The known suffix of the stack is as follows:
+## LAMBDA ID 
+##
+
+Unexpected token. Expected `.'.
+
+main: LAMBDA OPEN 
+##
+## Ends in an error in state: 2.
+##
+## expr_node -> LAMBDA . ID DOT expr [ EOF CLOSE ]
+##
+## The known suffix of the stack is as follows:
+## LAMBDA 
+##
+
+Unexpected token. Expected an identifier.
+
+main: OPEN EOF 
+##
+## Ends in an error in state: 1.
+##
+## expr3_node -> OPEN . expr_node CLOSE [ OPEN ID EOF CLOSE ]
+##
+## The known suffix of the stack is as follows:
+## OPEN 
+##
+
+Unexpected token. Expected an expression.
+
+main: OPEN ID EOF 
+##
+## Ends in an error in state: 13.
+##
+## expr3_node -> OPEN expr_node . CLOSE [ OPEN ID EOF CLOSE ]
+##
+## The known suffix of the stack is as follows:
+## OPEN expr_node 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 8, spurious reduction of production expr_node -> expr2_node 
+##
+
+Expected a closing delimiter or an expression.
+

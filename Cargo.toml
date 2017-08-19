@@ -1,0 +1,11 @@
+[package]
+name = "menhir-example"
+version = "0.1.0"
+authors = ["Naomi Testard <naomi.testard@gmail.com>"]
+build = "build.rs"
+
+[dependencies]
+rustlex = { path = "../RustLex" }
+
+[build-dependencies]
+menhir = { path = "../menhir" }
